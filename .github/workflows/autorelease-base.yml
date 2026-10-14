@@ -33,7 +33,7 @@ jobs:
     outputs:
       config: ${{ steps.load.outputs.config }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: load
         uses: ./.github/actions/load-config
         with:
@@ -44,7 +44,7 @@ jobs:
     outputs:
       config: ${{ steps.load.outputs.config }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: load
         uses: ./.github/actions/load-config
         with:
@@ -55,7 +55,7 @@ jobs:
     outputs:
       config: ${{ steps.load.outputs.config }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: load
         uses: ./.github/actions/load-config
         with:
@@ -66,7 +66,7 @@ jobs:
     outputs:
       config: ${{ steps.load.outputs.config }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: load
         uses: ./.github/actions/load-config
         with:
@@ -93,7 +93,7 @@ jobs:
           - { target: runtime, tag: cuda130-runtime-amzn2023, dockerfile: docker/base/v2/Dockerfile }
           - { target: devel,   tag: cuda130-devel-amzn2023,   dockerfile: docker/base/v2/Dockerfile }
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: Setup buildkitd
         run: .github/scripts/buildkitd.sh
@@ -171,7 +171,7 @@ jobs:
       group: ${{ github.workflow }}-base-sanity-${{ matrix.target.tag }}-${{ github.run_id }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - uses: ./.github/actions/ecr-authenticate
         with:
           aws-account-id: ${{ vars.CI_AWS_ACCOUNT_ID }}
@@ -208,7 +208,7 @@ jobs:
       group: ${{ github.workflow }}-cuda-${{ matrix.target.tag }}-${{ github.run_id }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - uses: ./.github/actions/ecr-authenticate
         with:
           aws-account-id: ${{ vars.CI_AWS_ACCOUNT_ID }}
@@ -234,7 +234,7 @@ jobs:
       release-spec: ${{ steps.generate.outputs.release-spec }}
       should-release: ${{ steps.check-release.outputs.should-release }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: check-release
         run: |
           echo '${{ needs.load-config-v1-runtime.outputs.config }}' > config.json
@@ -272,7 +272,7 @@ jobs:
       release-spec: ${{ steps.generate.outputs.release-spec }}
       should-release: ${{ steps.check-release.outputs.should-release }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: check-release
         run: |
           echo '${{ needs.load-config-v1-devel.outputs.config }}' > config.json
@@ -310,7 +310,7 @@ jobs:
       release-spec: ${{ steps.generate.outputs.release-spec }}
       should-release: ${{ steps.check-release.outputs.should-release }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: check-release
         run: |
           echo '${{ needs.load-config-v2-runtime.outputs.config }}' > config.json
@@ -348,7 +348,7 @@ jobs:
       release-spec: ${{ steps.generate.outputs.release-spec }}
       should-release: ${{ steps.check-release.outputs.should-release }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - id: check-release
         run: |
           echo '${{ needs.load-config-v2-devel.outputs.config }}' > config.json
