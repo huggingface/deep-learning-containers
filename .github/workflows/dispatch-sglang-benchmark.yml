@@ -34,7 +34,7 @@ jobs:
       runner-scale-sets-matrix: ${{ steps.parse.outputs.runner-scale-sets }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: Parse benchmark config
         id: parse
@@ -70,7 +70,7 @@ jobs:
         buildspec-override:true
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: ECR authenticate
         uses: ./.github/actions/ecr-authenticate
@@ -133,7 +133,7 @@ jobs:
 
       - name: Upload results
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         with:
           name: benchmark-${{ matrix.name }}-${{ matrix.fleet }}
           path: benchmark_results/
@@ -157,7 +157,7 @@ jobs:
     runs-on: ${{ matrix.runner_label || 'gpu-efa-runners' }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: ECR authenticate
         uses: ./.github/actions/ecr-authenticate
@@ -220,7 +220,7 @@ jobs:
 
       - name: Upload results
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         with:
           name: benchmark-${{ matrix.name }}-${{ matrix.runner_label || 'gpu-efa-runners' }}
           path: benchmark_results/
@@ -241,10 +241,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: Download all benchmark artifacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
         with:
           pattern: benchmark-*
           path: results/
